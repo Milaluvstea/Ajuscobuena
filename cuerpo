@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: auto; /* Cambiar de hidden a auto para permitir el desplazamiento */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background: radial-gradient(circle, #0a0a3c, #020214);
+            color: white;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        /* Imagen de fondo con efecto multiplicar y desplazamiento */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/fotos-premium/cabana-bosque-silueta-negra-aislada-blanco_807701-4339.jpg') no-repeat center center 
+fixed; down
+            background-size: down;
+            mix-blend-mode: multiply;
+            z-index: 3;
+        }
+
+        .container {
+            position: absolute;
+            text-align: center;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        input {
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #00aaff;
+            border-radius: 5px;
+            text-align: center;
+            background: #222;
+            color: white;
+            outline: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background: transparent;
+            border: 2px solid #00aaff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+        }
+        button:hover {
+            background: #00aaff;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .fire-container {
+            position: absolute;
+            top: 76%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 100px;
+            z-index: 5;
+        }
+        .fire-container img {
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: multiply;
+        }
+
+        .stars, .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 5px white;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            50% { opacity: 0.3; }
+        }
+
+        .shooting-star {
+            width: 4px;
+            height: 4px;
+            background: yellow;
+            animation: shoot 2s infinite linear;
+        }
+
+        @keyframes shoot {
+            0% { transform: translate(100vw, -10vh); opacity: 1; }
+            100% { transform: translate(-50vw, 50vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createStars(num) {
+            for (let i = 0; i < num; i++) {
+                let star = document.createElement("div");
+                star.className = "stars";
+                star.style.top = Math.random() * 100 + "vh";
+                star.style.left = Math.random() * 100 + "vw";
+                document.body.appendChild(star);
+            }
+        }
+
+        function createShootingStar() {
+            let star = document.createElement("div");
+            star.className = "shooting-star";
+            star.style.top = Math.random() * 50 + "vh";
+            star.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(star);
+            setTimeout(() => star.remove(), 2000);
+        }
+
+        createStars(100);
+        setInterval(createShootingStar, 3000);
+
+        function checkCode() {
+            var code = document.getElementById("codeInput").value;
+            var links = {
+                "1269": "https://youtu.be/PYQYAUBI8AY?si=amS14rAFp25jjP1W",
+                "6942": "https://youtu.be/xMxt2NiXmgs?si=vs9RQVcKDZyRM-t5",
+                "1875": "https://youtu.be/Vlb4E9m9S6w?si=wkDnGc47eEOvPcjQ",
+                "4444": "https://youtu.be/UAV1dWyjaAU?si=diYAbHYldNhqh_He",
+                "5693": "https://youtu.be/5JFfvAUOkGI?si=OQk8L4sCKlqg1otf",
+                "1308": "https://youtu.be/xw6yLI-PPgM?si=ktKlhOagyZ1Frtnt"
+            };
+
+            if (links[code]) {
+                window.location.href = links[code];
+            } else {
+                alert("Código incorrecto, inténtelo de nuevo.");
+            }
+        }
+
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                checkCode();
+            }
+        }
+    </script>
+
+    <!-- Imagen de fondo con efecto multiplicar -->
+    <div class="background-image"></div>
+
+    <div class="container">
+        <h1>Bienvenido al proyecto final</h1>
+        <p>Por favor, ingrese el código dado por los representantes</p>
+        <input type="text" id="codeInput" placeholder="Ingrese código" onkeydown="checkEnter(event)">
+        <button onclick="checkCode()">Ingresar</button>
+    </div>
+
+    <div class="fire-container">
+        <img src="https://usagif.com/wp-content/uploads/gifs/fire-46.gif" alt="Fuego animado">
+    </div>
+</body>
+</html>
