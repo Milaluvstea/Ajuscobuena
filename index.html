@@ -31,7 +31,7 @@ fixed; down
             background-size: down;
             mix-blend-mode: multiply;
             z-index: 3;
-        }
+          }
 
         .container {
             position: absolute;
@@ -41,7 +41,10 @@ fixed; down
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            width: 90%;
+            max-width: 400px;
         }
+
         input {
             padding: 12px;
             font-size: 18px;
@@ -51,7 +54,10 @@ fixed; down
             background: #222;
             color: white;
             outline: none;
+            width: 100%;
+            max-width: 300px;
         }
+
         button {
             margin-top: 10px;
             padding: 12px 25px;
@@ -64,20 +70,37 @@ fixed; down
             color: white;
             font-weight: bold;
             box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+            width: 100%;
+            max-width: 200px;
         }
+
         button:hover {
             background: #00aaff;
             color: white;
             transform: scale(1.1);
         }
 
+        @media (max-width: 480px) {
+            .container {
+                max-width: 300px;
+            }
+
+            input {
+                max-width: 250px;
+            }
+
+            button {
+                max-width: 150px;
+            }
+        }
+
         .fire-container {
             position: absolute;
             top: 76%;
-            left: 40%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 70px;
-            height: 100px;
+            width: 50px;
+            height: 80px;
             z-index: 5;
         }
         .fire-container img {
