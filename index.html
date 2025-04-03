@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecoscape</title>
+    <title>Proyecto Final</title>
     <style>
         body {
             margin: 0;
@@ -109,14 +109,13 @@
             mix-blend-mode: multiply;
         }
 
-         .stars, .shooting-star {
+        .stars, .shooting-star {
             position: absolute;
             width: 2px;
             height: 2px;
             background: white;
             box-shadow: 0 0 5px white;
             animation: twinkle 3s infinite;
-            z-index: 2;
         }
 
         @keyframes twinkle {
@@ -160,17 +159,15 @@
         createStars(100);
         setInterval(createShootingStar, 3000);
 
-         }
-        
-  function checkCode() {
+        function checkCode() {
             var code = document.getElementById("codeInput").value;
             var links = {
                 "T4QU1LL4": "https://forms.gle/P779GzUhmbDUfYdd6",
                 "ESTR3LL4S": "https://forms.gle/1CZTszrY1ieJEeCW8",
                 "GL4MP1NG": "https://docs.google.com/forms/d/e/1FAIpQLScvLtZH11mgNK0yCW2xU1x9I4UuKC1qdip3FXaEX3dVk9guwA/viewform?usp=header",
                 "R3STAUR4NT3": "https://docs.google.com/forms/d/e/1FAIpQLSceEblHgUjSOJEcehdOTtFzg-fyhsqcJqXpNXHkF54Qa4fZXQ/viewform?usp=dialog",
-                "S3RV1CIO": "https://docs.google.com/forms/d/e/1FAIpQLScHJCZQuPa4XbNcWf4I0JS2a7GXh7QTDxErH1CbM5AyEzh41Q/viewform?usp=header"
-            };
+                "S3RV1CIO": "https://docs.google.com/forms/d/e/1FAIpQLScHJCZQuPa4XbNcWf4I0JS2a7GXh7QTDxErH1CbM5AyEzh41Q/viewform?usp=header",
+                           };
 
             if (links[code]) {
                 window.location.href = links[code];
@@ -186,13 +183,12 @@
         }
     </script>
 
-
     <!-- Imagen de fondo con efecto multiplicar -->
     <div class="background-image"></div>
 
     <div class="container">
-        <h1>Bienvenido a Ecoscape</h1>
-        <p>Por favor, ingrese el anagrama proporcionado por el personal</p>
+        <h1>Bienvenido al proyecto final</h1>
+        <p>Por favor, ingrese el código dado por los representantes</p>
         <input type="text" id="codeInput" placeholder="Ingrese código" onkeydown="checkEnter(event)">
         <button onclick="checkCode()">Ingresar</button>
     </div>
