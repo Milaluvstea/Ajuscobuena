@@ -109,13 +109,14 @@
             mix-blend-mode: multiply;
         }
 
-        .stars, .shooting-star {
+         .stars, .shooting-star {
             position: absolute;
             width: 2px;
             height: 2px;
             background: white;
             box-shadow: 0 0 5px white;
             animation: twinkle 3s infinite;
+            z-index: 2;
         }
 
         @keyframes twinkle {
@@ -159,13 +160,15 @@
         createStars(100);
         setInterval(createShootingStar, 3000);
 
-        function checkCode() {
+         }
+        
+  function checkCode() {
             var code = document.getElementById("codeInput").value;
             var links = {
                 "T4QU1LL4": "https://forms.gle/P779GzUhmbDUfYdd6",
                 "ESTR3LL4S": "https://forms.gle/1CZTszrY1ieJEeCW8",
                 "GL4MP1NG": "https://docs.google.com/forms/d/e/1FAIpQLScvLtZH11mgNK0yCW2xU1x9I4UuKC1qdip3FXaEX3dVk9guwA/viewform?usp=header",
-                "R3STAUR4NT3": "https://docs.google.com/forms/d/e/1FAIpQLSceEblHgUjSOJEcehdOTtFzg-fyhsqcJqXpNXHkF54Qa4fZXQ/viewform?usp=dialog"
+                "R3STAUR4NT3": "https://docs.google.com/forms/d/e/1FAIpQLSceEblHgUjSOJEcehdOTtFzg-fyhsqcJqXpNXHkF54Qa4fZXQ/viewform?usp=dialog",
                 "S3RV1CIO": "https://docs.google.com/forms/d/e/1FAIpQLScHJCZQuPa4XbNcWf4I0JS2a7GXh7QTDxErH1CbM5AyEzh41Q/viewform?usp=header"
             };
 
@@ -182,6 +185,7 @@
             }
         }
     </script>
+
 
     <!-- Imagen de fondo con efecto multiplicar -->
     <div class="background-image"></div>
